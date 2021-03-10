@@ -35,11 +35,17 @@ func main() {
 
 	client.SetAppAccessToken(token.Data.AccessToken)
 
-	collector, err := NewFollowersCollector(client, config.Followers)
+	followersCollector, err := NewFollowersCollector(client, config.Followers)
 	if err != nil {
 		panic(err)
 	}
-	prometheus.MustRegister(collector)
+	prometheus.MustRegister(followersCollector)
+
+	viewersCollector, err := NewViewersCollector(client, config.Followers)
+	if err != nil {
+		panic(err)
+	}
+	prometheus.MustRegister(viewersCollector)
 
 	http.Handle("/metrics", promhttp.HandlerFor(
 		prometheus.DefaultGatherer,
