@@ -2,7 +2,7 @@ FROM golang as builder
 
 WORKDIR /app
 
-COPY go.mod go.sum /app/
+COPY go.mod /app/
 
 RUN go mod download
 COPY . .
