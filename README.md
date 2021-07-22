@@ -7,6 +7,7 @@ This exporter will allow you to export statistics of your Twitch account into pr
 To build this project you'll need to have [golang](https://golang.org/) installed.
 After that just clone this project and build it with `go build ./cmd/twitch-prometheus/...` while in the directory of your local clone.
 Alternatively if you rather use docker, you can just run `docker build -t <tagname> .` in the main directory of this project.
+Or you can just use the automatically build docker images instead ```docker run -p 9001:9001 -v `pwd`/config.yml:/config.yml:ro registry.gitlab.com/schoentoon/twitch-prometheus:latest```.
 
 ## Usage
 
