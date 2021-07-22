@@ -1,0 +1,7 @@
+client_id: "<Your Client ID>"
+client_secret: "<Your Client Secret>"
+port: 9001
+followers:
+  - "<usernames>"
+  - "<of streamers>"
+  - "<you want to keep track of>"

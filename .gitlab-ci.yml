@@ -30,7 +30,7 @@ build:
   artifacts:
     untracked: true
 
-build-docker-server:
+build-docker:
   stage: build
   tags:
     - docker
@@ -40,8 +40,6 @@ build-docker-server:
   only:
     - master
   script:
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN r.gitlab.schoentoon.com
-    - docker build -t r.gitlab.schoentoon.com/schoentoon/twitch-prometheus/server:$CI_COMMIT_SHORT_SHA .
-    - docker tag r.gitlab.schoentoon.com/schoentoon/twitch-prometheus/server:$CI_COMMIT_SHORT_SHA r.gitlab.schoentoon.com/schoentoon/twitch-prometheus/server:latest
-    - docker push r.gitlab.schoentoon.com/schoentoon/twitch-prometheus/server:$CI_COMMIT_SHORT_SHA
-    - docker push r.gitlab.schoentoon.com/schoentoon/twitch-prometheus/server:latest
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
