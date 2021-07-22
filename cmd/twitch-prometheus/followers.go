@@ -10,7 +10,7 @@ import (
 
 var (
 	followerCountDesc = prometheus.NewDesc(
-		"followers_total",
+		"twitch_followers_total",
 		"Number of Followers",
 		[]string{"username"}, nil,
 	)

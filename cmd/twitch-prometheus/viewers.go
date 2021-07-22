@@ -9,7 +9,7 @@ import (
 
 var (
 	viewersCountDesc = prometheus.NewDesc(
-		"viewers_total",
+		"twitch_viewers_total",
 		"Number of Viewers",
 		[]string{"username"}, nil,
 	)
